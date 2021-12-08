@@ -1,34 +1,34 @@
 package ru.netology.domain;
 
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-import static org.testng.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class CashbackHackServiceTest {
     CashbackHackService service = new CashbackHackService();
 
     @Test
     public void shouldService0() {
-        assertEquals(service.remain(0), 1000);
+        assertEquals(1000, service.remain(0));
     }
 
     @Test
     public void shouldServiceUnder1000() {
-        assertEquals(service.remain(410), 590);
+        assertEquals(590, service.remain(410));
     }
 
     @Test
     public void shouldService1000() {
-        assertEquals(service.remain(1000), 0);
+        assertEquals(0, service.remain(1000));
     }
 
     @Test
     public void shouldServiceMore1000() {
-        assertEquals(service.remain(1120), 880);
+        assertEquals(880, service.remain(1120));
     }
 
     @Test
     public void shouldServiceMore10000() {
-        assertEquals(service.remain(10320), 680);
+        assertEquals(680, service.remain(10320));
     }
 }
